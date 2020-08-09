@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 
 
 // // get data
@@ -20,11 +21,26 @@ class Index extends React.Component{
     return (
       <React.Fragment>
         <h1>I am index page</h1>
-        <a href="/">Home </a>
-        <a href="/portfolio">Portfolio </a>
-        <a href="/cv">CV </a>
-        <a href="/blogs">Blogs </a>
-        <a href="/about">About</a>
+        <Link href="/">
+          <a >Home </a>
+        </Link>
+
+        <Link href="/portfolio">
+          <a>Portfolio </a>
+        </Link>
+
+        <Link href="/cv">
+          <a>CV </a>
+        </Link>
+
+        <Link href="/blogs">
+          <a>Blogs </a>
+        </Link>      
+
+        <Link href="/about">
+          <a>About</a>
+        </Link>
+        
       </React.Fragment>
     )
   }

@@ -2,7 +2,7 @@
 
 import React, { Component } from 'react'
 
-export default class portfolios extends Component {
+export default class portfolio extends Component {
 
 
   render() {
