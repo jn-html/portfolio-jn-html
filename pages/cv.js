@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import Header from '../components/shared/Header';
 
 export default class Cv extends Component {
 

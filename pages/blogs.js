@@ -1,13 +1,15 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import Header from '../components/shared/Header';
 
 export default class blogs extends Component {
 
 
   render() {
     return (
-      <div>
+      <React.Fragment>
         <h1>I'm Blogs page</h1>
-      </div>
+        <Header />
+      </React.Fragment>
     )
   }
 }
