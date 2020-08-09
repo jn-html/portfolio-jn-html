@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Header from '../components/shared/Header';
+import BaseLayout from '../components/layouts/BaseLayout'
 
 export default class blogs extends Component {
 
@@ -7,8 +7,10 @@ export default class blogs extends Component {
   render() {
     return (
       <React.Fragment>
-        <h1>I'm Blogs page</h1>
-        <Header />
+        <BaseLayout>
+          <h1>I'm Blogs page</h1>
+
+        </BaseLayout>
       </React.Fragment>
     )
   }

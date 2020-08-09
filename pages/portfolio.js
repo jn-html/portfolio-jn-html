@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import Header from '../components/shared/Header';
+import BaseLayout from '../components/layouts/BaseLayout'
+
 
 export default class portfolio extends Component {
 
@@ -7,8 +8,10 @@ export default class portfolio extends Component {
   render() {
     return (
       <React.Fragment>
-        <h1>I'm Portfolio page</h1>
-        <Header />
+        <BaseLayout>
+          <h1>I'm Portfolio page</h1>
+
+        </BaseLayout>
       </React.Fragment>
     )
   }
