@@ -18,7 +18,14 @@ class Index extends React.Component{
 
   render() {
     return (
-      <h1>I am index page</h1>
+      <React.Fragment>
+        <h1>I am index page</h1>
+        <a href="/">Home </a>
+        <a href="/portfolio">Portfolio </a>
+        <a href="/cv">CV </a>
+        <a href="/blogs">Blogs </a>
+        <a href="/about">About</a>
+      </React.Fragment>
     )
   }
 }
