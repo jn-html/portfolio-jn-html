@@ -25,7 +25,7 @@ export default class portfolio extends Component {
     return posts.map((post) => {
       return (
         <li>
-          <Link href={`/portfolioDetail?title=${post.title}`}>
+          <Link href={`/portfolioDetail?title=${post.title}`} as={`/portfolioDetail/${post.id}`}>
             <a style={{'fontSize': '20px'}}> {post.title} </a>
           </Link>
         </li>
