@@ -3,6 +3,15 @@ import BaseLayout from '../components/layouts/BaseLayout';
 import SuperComponent from '../components/SuperComponent';
 
 class Index extends SuperComponent {
+
+  static getInitialProps() {
+    console.log(' I\'m getting getInitialProps' )
+
+    // getting initial data from server
+    // then returning initial data to our client
+    return {initialData: [1,2,3,4,5]};
+  }
+
   constructor(props){
     super(props);
 
@@ -33,6 +42,7 @@ class Index extends SuperComponent {
 
   render() {
     const {title} = this.state;
+    const { userData, initialData } = this.props;
 
     return (
       
