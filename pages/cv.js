@@ -7,10 +7,10 @@ export default class Cv extends Component {
   render() {
     return (
       <React.Fragment>
-      <BaseLayout>
-        <h1> I'm Cv page</h1>
+        <BaseLayout>
+          <h1> I'm Cv page</h1>
 
-      </BaseLayout>
+        </BaseLayout>
       </React.Fragment>
     )
   }

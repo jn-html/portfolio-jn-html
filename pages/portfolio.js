@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import BaseLayout from '../components/layouts/BaseLayout';
+import Link from 'next/link';
 import axios from 'axios';
 
 
@@ -23,7 +24,11 @@ export default class portfolio extends Component {
   renderPosts(posts) {
     return posts.map((post) => {
       return (
-        <p>{post.title}</p>
+        <li>
+          <Link href={`/portfolioDetail?title=${post.title}`}>
+            <a style={{'fontSize': '20px'}}> {post.title} </a>
+          </Link>
+        </li>
       )
     })
   }
