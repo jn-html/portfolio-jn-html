@@ -22,10 +22,10 @@ export default class portfolio extends Component {
   }
 
   renderPosts(posts) {
-    return posts.map((post) => {
+    return posts.map((post, index) => {
       return (
-        <li>
-          <Link href={`/portfolioDetail?title=${post.title}`} as={`/portfolioDetail/${post.id}`}>
+        <li key={index}>
+          <Link as={`/portfolio/${post.id}`} href={`/portfolio/[id]`} >
             <a style={{'fontSize': '20px'}}> {post.title} </a>
           </Link>
         </li>
@@ -37,7 +37,6 @@ export default class portfolio extends Component {
     const { posts } = this.props;
 
     return (
-      <React.Fragment>
         <BaseLayout>
           <h1>I'm Portfolio page</h1>
           <ul>
@@ -52,7 +51,7 @@ export default class portfolio extends Component {
           </ul>
 
         </BaseLayout>
-      </React.Fragment>
+
     )
   }
 }
