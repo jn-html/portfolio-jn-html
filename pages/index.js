@@ -9,7 +9,8 @@ class Index extends SuperComponent {
     this.state = {
       title: 'I am Index Page'
     }
-    console.log('constructor')
+    //  binding this context to updateTitle
+    // this.updateTitle = this.updateTitle.bind(this);
   }
 
   componentDidMount() {
@@ -26,7 +27,7 @@ class Index extends SuperComponent {
 
   }
 
-  updateTitle() {
+  updateTitle = () => {
     this.setState({title: 'I am the updated Index page'})
   }
 
@@ -38,7 +39,7 @@ class Index extends SuperComponent {
         <BaseLayout>
           <h1 className="fromPage">I'm index page</h1>
           <h2>{title}</h2>
-          <button onClick={ () => this.updateTitle() }>Change title</button>
+          <button onClick={ this.updateTitle }>Change title</button>
 
         </BaseLayout>
 
