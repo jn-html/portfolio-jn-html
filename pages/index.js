@@ -31,13 +31,13 @@ class Index extends SuperComponent {
   }
 
   render() {
-    console.log('render');
+    const {title} = this.state;
 
     return (
       
         <BaseLayout>
-          <h1 className="fromPage">I am index page</h1>
-          <h2>{this.state.title}</h2>
+          <h1 className="fromPage">I'm index page</h1>
+          <h2>{title}</h2>
           <button onClick={ () => this.updateTitle() }>Change title</button>
 
         </BaseLayout>
