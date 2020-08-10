@@ -3,5 +3,7 @@
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
   "/portfolio": "pages/portfolio.js",
-  "/portfolioDetail": "pages/portfolioDetail.js"
+  "/portfolioDetail": "pages/portfolioDetail.js",
+  "/": "pages/index.js",
+  "/cv": "pages/cv.js"
 }
