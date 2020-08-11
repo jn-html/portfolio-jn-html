@@ -29,6 +29,9 @@ class PortfolioDetail extends Component {
     return (
 
         <BaseLayout>
+          {/* <h1> I'm portfolio page</h1>
+          <h2> {this.props.router.query.id}</h2> */}
+          
           <h1> {PortfolioDetail.title} </h1>
           <h2> BODY: {PortfolioDetail.body} </h2>
           <p> ID: {PortfolioDetail.id} </p>

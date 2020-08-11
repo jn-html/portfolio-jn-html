@@ -1,5 +1,4 @@
 
-
 const express = require('express');
 
 const next = require('next');
@@ -8,7 +7,8 @@ const routes = require('./routes');
 
 const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev });
-const handle = routes.getRequestHandler(app);
+// const handler = app.getRequestHandler(app);
+const handler = routes.getRequestHandler(app);
 
 app.prepare().then(() => {
   const server = express();
@@ -20,13 +20,18 @@ app.prepare().then(() => {
   //   app.render(req, res, actualPage, queryParams)
   // })
 
-  
+  // OLD NEXT dynamic routes (not needed anymore)
+  // server.get('/portfolioDetail/:id', (req, res) => {
+  //   const actualPage = '/portfolioDetail'
+  //   const queryParams = { id: req.params.id }
+  //   app.render(req, res, actualPage, queryParams)
+  // })
 
   server.get('*',  (req, res) => {
-  return handle(req, res);
+  return handler(req, res);
   })
 
-  server.use(handle).listen(3000, (err) => {
+  server.use(handler).listen(3000, (err) => {
     if(err) throw err
     console.log('> Ready on http://localhost:3000');
   })

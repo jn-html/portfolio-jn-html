@@ -1,8 +1,22 @@
+// NEXT 9
 const routes = require('next-routes')
 
+// portfolioDetail page
 module.exports = routes()
-// .add('about')
-.add('portfolioDetail', '/portfolioDetail/:id')
+// .add('blog', '/blog/:slug')
+// .add('portfolioDetail', '/portfolioDetail/[id]')
+
+
+// Test page
+module.exports = routes()
+.add('test', '/test/:id')
+
+
+// OLD NEXT
+// const routes = require('next-routes')
+// module.exports = routes()
+// // .add('about')
+// .add('portfolioDetail', '/portfolioDetail/:id')
 
 
 
