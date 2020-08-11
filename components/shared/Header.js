@@ -18,29 +18,29 @@ export default class Header extends Component {
         <p>{title}</p>
         {this.props.children}
 
-        <Link href="/">
+        <Link href={{pathname:"/"}}>
           {/* <a style={{'fontSize': '20px'}}>Home </a> */}
           <a>Home </a>
         </Link>
 
-        <Link href="/portfolio">
+        <Link href={{pathname:"/portfolio"}}>
           <a>Portfolio </a>
         </Link>
 
-        <Link href="/cv">
+        <Link href={{pathname:"{/cv}"}}>
           <a>CV </a>
         </Link>
 
-        <Link href="/blogs">
+        <Link href={{pathname:"/blogs"}}>
           <a>Blogs </a>
         </Link>      
 
-        <Link href="/about">
-          <a>About</a>
+        <Link href={{pathname:"/about"}}>
+          <a>About </a>
         </Link>
 
-        <NextLink route='test' params={{id: '2'}}> Test 2 </NextLink>
-        <NextLink route='test' params={{id: '5'}}> Test 5 </NextLink>
+        <NextLink route='test' params={{id: '2'}}><a>Test 2</a></NextLink>
+        <NextLink route='test' params={{id: '5'}}><a>Test 5</a></NextLink>
 
         <style jsx>{`
           a {

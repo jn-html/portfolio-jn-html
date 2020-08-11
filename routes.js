@@ -4,12 +4,12 @@ const routes = require('next-routes')
 // portfolioDetail page
 module.exports = routes()
 // .add('blog', '/blog/:slug')
-// .add('portfolioDetail', '/portfolioDetail/[id]')
+.add('portfolioDetail', '/portfolioDetail/[id]')
 
 
-// Test page
-module.exports = routes()
-.add('test', '/test/:id')
+// // Test page
+// module.exports = routes()
+// .add('test', '/test/:id')
 
 
 // OLD NEXT

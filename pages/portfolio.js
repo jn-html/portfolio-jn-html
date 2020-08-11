@@ -26,7 +26,7 @@ export default class portfolio extends Component {
         <li key={index}>
 
           {/* NEXT 9 dynamic routes */}
-          <Link as={`/portfolioDetail/${post.id}`} href="/portfolioDetail/[id]" >
+          <Link as={`/portfolioDetail/${post.id}`} href={{pathname:"/portfolioDetail/[id]"}} >
           {/* <Link as={`/portfolioDetail/${post.id}`} href={`/portfolioDetail?id=${post.id}`} > */}
             <a style={{'fontSize': '20px'}}> {post.title} </a>
           </Link>
