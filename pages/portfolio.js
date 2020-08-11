@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import BaseLayout from '../components/layouts/BaseLayout';
-import Link from 'next/link';
+import { Link } from '../routes'
+// import Link from 'next/link';
 import axios from 'axios';
 
 
@@ -30,7 +31,7 @@ export default class portfolio extends Component {
             <a style={{'fontSize': '20px'}}> {post.title} </a>
           </Link> */}
           {/* OLD NEXT 9 dynamic routes */}
-          <Link as={`/portfolioDetail/${post.id}`} href={`/portfolioDetail/?id=${post.id}`} >
+          <Link route={`/portfolioDetail/${post.id}`} >
             <a style={{'fontSize': '20px'}}> {post.title} </a>
           </Link>
         </li>
@@ -38,6 +39,12 @@ export default class portfolio extends Component {
     })
   }
 
+  // Instead of renderPosts function 
+  //             { posts.map((post) => {
+  //               return (
+  //                 <li>{post.title}</li>
+  //               )
+  //             }) } 
   render() {
     const { posts } = this.props;
 
@@ -47,12 +54,6 @@ export default class portfolio extends Component {
           <ul>
             { this.renderPosts(posts) }
 
-              {/* Instead of renderPosts function */}
-              {/* { posts.map((post) => {
-                return (
-                  <li>{post.title}</li>
-                )
-              }) } */}
           </ul>
 
         </BaseLayout>
