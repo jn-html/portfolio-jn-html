@@ -7,7 +7,6 @@ import axios from 'axios';
 export default class portfolio extends Component {
 
   static async getInitialProps() {
-    // console.log(' I\'m getting getInitialProps' )
     let posts = [];
 
     try {

@@ -5,8 +5,12 @@ import axios from 'axios';
 
 class PortfolioDetail extends Component {
 
+  static getInitialProps() {
+    
+    return {};
+  }
 
-  render(props) {
+  render() {
     return (
 
         <BaseLayout>
