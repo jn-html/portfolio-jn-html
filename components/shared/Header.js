@@ -11,13 +11,8 @@ export default class Header extends Component {
   
   render() {
 
-    const {title} = this.props;
-
     return (
       <React.Fragment>
-        <p>{title}</p>
-        {this.props.children}
-
         <Link href={{pathname:"/"}}>
           {/* <a style={{'fontSize': '20px'}}>Home </a> */}
           <a>Home </a>
@@ -39,8 +34,8 @@ export default class Header extends Component {
           <a>About </a>
         </Link>
 
-        <NextLink route='test' params={{id: '2'}}><a>Test 2</a></NextLink>
-        <NextLink route='test' params={{id: '5'}}><a>Test 5</a></NextLink>
+        {/* <NextLink route='test' params={{id: '2'}}><a>Test 2</a></NextLink>
+        <NextLink route='test' params={{id: '5'}}><a>Test 5</a></NextLink> */}
 
         <style jsx>{`
           a {

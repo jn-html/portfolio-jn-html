@@ -13,14 +13,17 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@zeit/next-css": "^1.0.1",
     "@zeit/next-sass": "^1.0.1",
     "axios": "^0.19.2",
+    "bootstrap": "^4.5.2",
     "express": "^4.17.1",
     "next": "^9.5.1",
     "next-routes": "^1.4.2",
     "node-sass": "^4.14.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "reactstrap": "^8.5.1",
     "routes": "^2.1.0"
   }
 }

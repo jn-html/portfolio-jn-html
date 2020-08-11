@@ -19,7 +19,7 @@ module.exports = routes()
 // .add('portfolioDetail', '/portfolioDetail/:id')
 
 
-
+// TO ADD LATER
 // add('portfolioNew', '/portfolios/new')
 // .add('portfolio', '/portfolio/:id')
 // .add('portfolioEdit', '/portfolios/:id/edit')
