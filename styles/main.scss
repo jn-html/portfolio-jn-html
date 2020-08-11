@@ -1,18 +1,13 @@
 @import './shared/fonts';
 
+// PAGES
+@import './index';
 
 
 html, body {
+  height:100%;
+  width:100%;
   font-family: 'Monserrat', 'Helvetica';
 }
 
 
-
-
-.customClassFromFile {
-  color: blue;
-}
-
-.from-page {
-  font-size: 20px;
-}
