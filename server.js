@@ -12,11 +12,19 @@ const handle = app.getRequestHandler(app);
 app.prepare().then(() => {
   const server = express();
 
+  // NEXT 9 dynamic routes
   server.get('/portfolioDetail/[id]', (req, res) => {
     const actualPage = '/portfolioDetail'
     const queryParams = { id: req.params.id }
     app.render(req, res, actualPage, queryParams)
   })
+
+  // OLD NEXT dynamic routes
+  // server.get('/portfolioDetail/:id', (req, res) => {
+  //   const actualPage = '/portfolioDetail'
+  //   const queryParams = { id: req.params.id }
+  //   app.render(req, res, actualPage, queryParams)
+  // })
 
   server.get('*',  (req, res) => {
   return handle(req, res);

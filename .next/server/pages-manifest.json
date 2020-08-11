@@ -2,8 +2,5 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/portfolioDetail": "pages/portfolioDetail.js",
-  "/portfolio/[id]": "pages/portfolio/[id].js",
-  "/next/dist/pages/_error": "pages/next/dist/pages/_error.js",
-  "/portfolio": "pages/portfolio.js"
+  "/portfolioDetail": "pages/portfolioDetail.js"
 }

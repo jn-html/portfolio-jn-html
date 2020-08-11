@@ -25,9 +25,15 @@ export default class portfolio extends Component {
     return posts.map((post, index) => {
       return (
         <li key={index}>
+
+        {/* NEXT 9 dynamic routes */}
           <Link as={`/portfolio/${post.id}`} href={`/portfolio/[id]`} >
             <a style={{'fontSize': '20px'}}> {post.title} </a>
           </Link>
+          {/* OLD NEXT 9 dynamic routes */}
+          {/* <Link as={`/portfolioDetail/${post.id}`} href={`/portfolioDetail/?id=${post.id}`} >
+            <a style={{'fontSize': '20px'}}> {post.title} </a>
+          </Link> */}
         </li>
       )
     })

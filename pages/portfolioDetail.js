@@ -6,7 +6,7 @@ import axios from 'axios';
 class PortfolioDetail extends Component {
 
 
-  render() {
+  render(props) {
     return (
 
         <BaseLayout>
