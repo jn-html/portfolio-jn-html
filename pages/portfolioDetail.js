@@ -5,17 +5,33 @@ import axios from 'axios';
 
 class PortfolioDetail extends Component {
 
-  static getInitialProps() {
-    
-    return {};
+  static async getInitialProps({query}) {
+
+    const portfolioDetailId = query.id;
+    let PortfolioDetail = {};
+
+    try {
+      // const response = axios('https://jsonplaceholder.typicode.com/posts/' + portfolioDetailId);
+      const response = await axios(`https://jsonplaceholder.typicode.com/posts/${portfolioDetailId}`);
+      PortfolioDetail = response.data
+
+    } catch(err) {
+      console.error(err)
+    }
+
+    return {PortfolioDetail};
   }
 
   render() {
+
+    const { PortfolioDetail } = this.props;
+
     return (
 
         <BaseLayout>
-          <h1> I'm Portfolio Detail page</h1>
-          <h2>{this.props.router.query.id}</h2>
+          <h1> {PortfolioDetail.title} </h1>
+          <h2> BODY: {PortfolioDetail.body} </h2>
+          <p> ID: {PortfolioDetail.id} </p>
         </BaseLayout>
       
     )
