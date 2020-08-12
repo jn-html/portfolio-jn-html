@@ -1,55 +1,3 @@
-// import React, { Component } from 'react';
-// import Link from 'next/link';
-// import {Link as NextLink} from '../../routes';
-
-// import '../../styles/main.scss';
-
-
-// export default class Header extends Component {
-
-
-  
-//   render() {
-
-//     return (
-//       <React.Fragment>
-        // <Link href={{pathname:"/"}}>
-        //   {/* <a style={{'fontSize': '20px'}}>Home </a> */}
-        //   <a>Home </a>
-        // </Link>
-
-//         <Link href={{pathname:"/portfolio"}}>
-//           <a>Portfolio </a>
-//         </Link>
-
-//         <Link href={{pathname:"{/cv}"}}>
-//           <a>CV </a>
-//         </Link>
-
-//         <Link href={{pathname:"/blogs"}}>
-//           <a>Blogs </a>
-//         </Link>      
-
-//         <Link href={{pathname:"/about"}}>
-//           <a>About </a>
-//         </Link>
-
-//         {/* <NextLink route='test' params={{id: '2'}}><a>Test 2</a></NextLink>
-//         <NextLink route='test' params={{id: '5'}}><a>Test 5</a></NextLink> */}
-
-//         <style jsx>{`
-//           a {
-//             font-size: 20px;
-//             text-decoration: none;
-//           }
-//         `}</style>
-//       </React.Fragment>
-//     )
-//   }
-// }
-
-
-
 import React, { useState, Component } from 'react';
 import Link from 'next/link';
 import {
@@ -91,9 +39,9 @@ export default class Header extends Component {
       isOpen: false,
       dropdownOpen: false
     };
-
+    
     this.toggle = this.toggle.bind(this);
-    this.toggleDropdown = this.toggleDropdown.bind(this);
+    // this.toggleDropdown = this.toggleDropdown.bind(this);
 
   }
   
@@ -103,23 +51,25 @@ export default class Header extends Component {
     });
   }
 
-  toggleDropdown() {
-    this.setState({
-      dropdownOpen: !this.state.dropdownOpen
-    });
-  }
+  // toggleDropdown() {
+  //   this.setState({
+  //     dropdownOpen: !this.state.dropdownOpen
+  //   });
+  // }
 
   // RENDER appartient au class component pas au hooks
   render(){
     // destructured for class component
-    const {toggle, isOpen} = this.props
+    const { isOpen } = this.state;
+
+    // const menuOpenClass = isOpen ? 'menu-open' : 'menu-close';
 
     return (
       <div>
         <Navbar className="port-navbar port-default absolute" color="transparent" dark expand="md">
           <NavbarBrand className="port-navbar-brand" href="/">Jean Marmain</NavbarBrand>
-          <NavbarToggler onClick={toggle} />
-          <Collapse isOpen={isOpen} navbar>
+          <NavbarToggler onClick={this.toggle} />
+          <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem className="port-navbar-item">
                 <BsNavLink route="/" title="Home" />
