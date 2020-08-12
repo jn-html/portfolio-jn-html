@@ -72,7 +72,7 @@ const BsNavLink = (props) => {
   const { route, title} = props
   return (
     <Link href={route}>
-      <a className="nav-link">{title}</a>
+      <a className="nav-link port-navbar-link">{title}</a>
     </Link>
   )
 }
@@ -80,22 +80,32 @@ const BsNavLink = (props) => {
 // WITH HOOKS
 // const Example = (props) => {
 //   const [isOpen, setIsOpen] = useState(false);
-
 //   const toggle = () => setIsOpen(!isOpen);
 
 // CLASS COMPONENT
-export default class Exemple extends Component {
+export default class Header extends Component {
   constructor(props){
     super(props);
+    
+    this.state = {
+      isOpen: false,
+      dropdownOpen: false
+    };
 
     this.toggle = this.toggle.bind(this);
-    this.state = {
-      isOpen: false
-    };
+    this.toggleDropdown = this.toggleDropdown.bind(this);
+
   }
+  
   toggle() {
     this.setState({
       isOpen: !this.state.isOpen
+    });
+  }
+
+  toggleDropdown() {
+    this.setState({
+      dropdownOpen: !this.state.dropdownOpen
     });
   }
 
@@ -106,24 +116,24 @@ export default class Exemple extends Component {
 
     return (
       <div>
-        <Navbar color="light" light expand="md">
-          <NavbarBrand href="/">Jean Marmain</NavbarBrand>
+        <Navbar className="port-navbar port-default absolute" color="transparent" dark expand="md">
+          <NavbarBrand className="port-navbar-brand" href="/">Jean Marmain</NavbarBrand>
           <NavbarToggler onClick={toggle} />
           <Collapse isOpen={isOpen} navbar>
             <Nav className="ml-auto" navbar>
-              <NavItem>
+              <NavItem className="port-navbar-item">
                 <BsNavLink route="/" title="Home" />
               </NavItem>
-              <NavItem>
+              <NavItem className="port-navbar-item">
                 <BsNavLink route="/portfolio" title="Portfolio" />
               </NavItem>
-              <NavItem>
+              <NavItem className="port-navbar-item">
                 <BsNavLink route="/cv" title="CV" />
               </NavItem>
-              <NavItem>
+              <NavItem className="port-navbar-item">
                 <BsNavLink route="/blog" title="Blog" />
               </NavItem>
-              <NavItem>
+              <NavItem className="port-navbar-item">
                 <BsNavLink route="/about" title="About" />
               </NavItem>
 

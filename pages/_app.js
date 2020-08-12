@@ -8,7 +8,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/main.scss';
 
 export default class MyApp extends App {
-  
+
   static async getInitialProps({ Component, router, ctx }) {
     let pageProps = {}
 
