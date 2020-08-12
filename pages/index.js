@@ -1,10 +1,17 @@
 import React, { Component } from 'react';
+import Typed from 'react-typed';
 import BaseLayout from '../components/layouts/BaseLayout';
 import { Button, Container, Row, Col } from 'reactstrap';
 
 
 
 class Index extends Component {
+
+  constructor(props){
+    super(props);
+
+    this.roles = ['Developer', 'Tech Lover', 'Team Player', 'React.js', 'Next.js']
+  }
 
   render() {
 
@@ -38,10 +45,23 @@ class Index extends Component {
               <Col md="6" className="hero-welcome-wrapper">
                 <div className="hero-welcome-text">
                   <h1>
-                    Welcome to the portfolio website of Filip Jerga.
-                    Get informed, collaborate and discover projects I was working on through the years!
+                    Welcome to the portfolio website of Jean Marmain.
+                    Get informed, collaborate and discover projects I was working on through the year!
                   </h1>
                 </div>
+                <Typed
+                  loop
+                  typeSpeed={30}
+                  backSpeed={20}
+                  strings={this.roles}
+                  backDelay={500}
+                  // fadeOut={false}
+                  // fadeOutDelay={100}
+                  loopCount={0}
+                  showCursor
+                  className="self-typed"
+                  cursorChar="|"
+                />
                 <div className="hero-welcome-bio">
                   <h1>
                     Let's take a look on my work.
