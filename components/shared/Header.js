@@ -1,3 +1,9 @@
+// WITH HOOKS
+// const Example = (props) => {
+//   const [isOpen, setIsOpen] = useState(false);
+//   const toggle = () => setIsOpen(!isOpen);
+// }
+
 import React, { useState, Component } from 'react';
 import Link from 'next/link';
 import {
@@ -25,10 +31,17 @@ const BsNavLink = (props) => {
   )
 }
 
-// WITH HOOKS
-// const Example = (props) => {
-//   const [isOpen, setIsOpen] = useState(false);
-//   const toggle = () => setIsOpen(!isOpen);
+const Login = () => {
+  return (
+    <span className="nav-link port-navbar-link">Log In</span>
+  )
+}
+
+const Logout = () => {
+  return (
+    <span className="nav-link port-navbar-link">Log Out</span>
+  )
+}
 
 // CLASS COMPONENT
 export default class Header extends Component {
@@ -85,6 +98,13 @@ export default class Header extends Component {
               </NavItem>
               <NavItem className="port-navbar-item">
                 <BsNavLink route="/about" title="About" />
+              </NavItem>
+
+              <NavItem className="port-navbar-item clickable">
+                <Login />
+              </NavItem>
+              <NavItem className="port-navbar-item clickable">
+                <Logout />
               </NavItem>
 
               {/* <NavItem>
