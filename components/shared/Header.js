@@ -20,6 +20,9 @@ import {
   DropdownItem,
   NavbarText
 } from 'reactstrap';
+import auth0 from '../../services/auth0';
+
+
 
 
 const BsNavLink = (props) => {
@@ -33,7 +36,7 @@ const BsNavLink = (props) => {
 
 const Login = () => {
   return (
-    <span className="nav-link port-navbar-link">Log In</span>
+    <span onClick={auth0.login} className="nav-link port-navbar-link">Log In</span>
   )
 }
 

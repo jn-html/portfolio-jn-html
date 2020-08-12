@@ -2,6 +2,7 @@ import React from 'react';
 import App from 'next/app';
 import { Container } from 'reactstrap';
 
+
 // STYLING
 // order matter 1st in list will be overided
 import 'bootstrap/dist/css/bootstrap.min.css';
