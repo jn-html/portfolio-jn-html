@@ -121,6 +121,10 @@ class Auth0 {
   //   return verifiedToken;
   // }
 
+  clientAuth() {
+    return this.isAuthenticated();
+  }
+
 
 //   async serverAuth(req) {
 //     if (req.headers.cookie) {
@@ -133,6 +137,30 @@ class Auth0 {
 
 //     return undefined;
 //   }
+
+  serverAuth(req) {
+    if (req.headers.cookie) {
+      
+      // const cookies = req.headers.cookie;
+      // console.log(cookies);
+      // const splitedCookies = cookies.split(';');
+      // console.log(splitedCookies)
+      // // trim to take of space in "json"
+      // const expiresAtCookie = splitedCookies.find(c => c.trim().startsWith('expiresAt='));
+      // console.log(expiresAtCookie); 
+      // const expiresAtArray = expiresAtCookie.split('=');
+      // console.log(expiresAtArray);
+      // const expiresAt = expiresAtCookie[1];
+      // console.log(expiresAt);
+      
+      const expiresAtCookie = req.headers.cookie.split(';').find( c => c.trim().startsWith('expiresAt='));
+      if (!expiresAtCookie) {
+        return undefined
+      };
+      const expiresAt = expiresAtCookie.split('=')[1];
+      return new Date().getTime() < expiresAt;
+    }
+  }
 }
 
 
