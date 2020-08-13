@@ -36,13 +36,13 @@ const BsNavLink = (props) => {
 
 const Login = () => {
   return (
-    <span onClick={auth0.login} className="nav-link port-navbar-link">Log In</span>
+    <span onClick={auth0.login} className="nav-link port-navbar-link">Login</span>
   )
 }
 
 const Logout = () => {
   return (
-    <span className="nav-link port-navbar-link">Log Out</span>
+    <span onClick={auth0.logout} className="nav-link port-navbar-link">Logout</span>
   )
 }
 
@@ -103,12 +103,20 @@ export default class Header extends Component {
                 <BsNavLink route="/about" title="About" />
               </NavItem>
 
-              <NavItem className="port-navbar-item clickable">
-                <Login />
-              </NavItem>
-              <NavItem className="port-navbar-item clickable">
-                <Logout />
-              </NavItem>
+                {/* { auth0.isAuthenticated() === false &&  //same as */}
+                { !auth0.isAuthenticated() &&
+                  <NavItem className="port-navbar-item clickable">
+                    <Login />
+                  </NavItem>
+
+                }
+                { auth0.isAuthenticated() && 
+                  <NavItem className="port-navbar-item clickable">
+                    <Logout />
+                  </NavItem>
+                }
+
+
 
               {/* <NavItem>
                 <NavLink href="https://github.com/reactstrap/reactstrap">GitHub</NavLink>

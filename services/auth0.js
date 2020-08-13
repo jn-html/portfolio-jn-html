@@ -73,7 +73,7 @@ class Auth0 {
   isAuthenticated(){
     // Check whether the current is past the
     // Access Token's expiry time
-    const expiresAt = cookies.getJson('expiresAt');
+    const expiresAt = Cookies.getJSON('expiresAt');
     return new Date().getTime() < expiresAt;
   }
 
