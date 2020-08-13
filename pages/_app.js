@@ -12,13 +12,18 @@ export default class MyApp extends App {
 
   static async getInitialProps({ Component, router, ctx }) {
     let pageProps = {}
-    const isAuthenticated = process.browser ? auth0.clientAuth : auth0.serverAuth(ctx.req);
+    const user = process.browser ? auth0.clientAuth : auth0.serverAuth(ctx.req);
 
     if (Component.getInitialProps) {
       pageProps = await Component.getInitialProps(ctx)
     }
+
+    
     // Because it's destructure in BaseLayout, we can access it
-    const auth = { isAuthenticated };
+    const auth = { user, isAuthenticated: !!user };
+    // SWITCH BETWEEN TRUE|FALSE  / OR LONG WAY:
+    // let isAuthenticated = false;
+    // if(user) { isAuthenticated = true }
     
     return { pageProps, auth }
   }
