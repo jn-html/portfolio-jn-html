@@ -117,6 +117,13 @@ export default class Header extends Component {
                   </NavItem>
                 }
 
+                {/* TO DISPLAY NAME IN NAVBAR */}
+                {/* { isAuthenticated && 
+                  <NavItem className="port-navbar-item clickable">
+                    <span className="nav-user-name">{this.props.user.name}</span>
+                  </NavItem>
+                } */}
+
 
 
               {/* <NavItem>

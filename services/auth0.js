@@ -23,7 +23,7 @@ class Auth0 {
     this.login = this.login.bind(this);
     this.handleAuthentication = this.handleAuthentication.bind(this);
     this.logout = this.logout.bind(this);
-    this.isAuthenticated = this.isAuthenticated.bind(this);
+    // this.isAuthenticated = this.isAuthenticated.bind(this);
   }
 
   handleAuthentication() {
@@ -56,7 +56,6 @@ class Auth0 {
     Cookies.remove('user');
     Cookies.remove('jwt');
     Cookies.remove('expiresAt');
-  //   Cookies.remove('jwt');
 
     this.auth0.logout({
       // returnTo: process.env.BASE_URL,
@@ -70,12 +69,12 @@ class Auth0 {
     this.auth0.authorize();
   }
 
-  isAuthenticated(){
-    // Check whether the current is past the
-    // Access Token's expiry time
-    const expiresAt = Cookies.getJSON('expiresAt');
-    return new Date().getTime() < expiresAt;
-  }
+  // isAuthenticated(){
+  //   // Check whether the current is past the
+  //   // Access Token's expiry time
+  //   const expiresAt = Cookies.getJSON('expiresAt');
+  //   return new Date().getTime() < expiresAt;
+  // }
 
   // async getJWKS() {
   //   const res = await axios.get('https://eincode.eu.auth0.com/.well-known/jwks.json');
@@ -154,7 +153,7 @@ class Auth0 {
   serverAuth(req) {
     if (req.headers.cookie) {
             
-      const tokenCookie = req.headers.cookie.split(';').find( c => c.trim().startsWith('jwt'));
+      const tokenCookie = req.headers.cookie.split(';').find( c => c.trim().startsWith('jwt='));
       if (!tokenCookie) {
         return undefined
       };

@@ -15,6 +15,8 @@ class Index extends Component {
 
   render() {
 
+    const { isAuthenticated, user } =this.props.auth;
+
     return (
       <BaseLayout {...this.props.auth} className="cover">
         <div className="main-section">
@@ -44,6 +46,10 @@ class Index extends Component {
               </Col>
               <Col md="6" className="hero-welcome-wrapper">
                 <div className="hero-welcome-text">
+                <h1>
+                  {/* { isAuthenticated && <div><h2>Hello {user.name}</h2></div>} */}
+                  { isAuthenticated && <span><b>{user.name}</b></span>}
+                </h1>
                   <h1>
                     Welcome to the portfolio website of Jean Marmain.
                     Get informed, collaborate and discover projects I was working on through the year!
