@@ -1,41 +1,6 @@
-{/* <script type="text/javascript">
-  const webAuth = new auth0.WebAuth({
-    domain:       'jnmn.eu.auth0.com',
-    clientID:     'gJejjJctuYOVir0bF3dcmD7ptBA297L0'
-  });
-</script> */}
-
-// import  auth0 from 'auth0-js';
-
-// const CLIENT_ID = process.env.CLIENT_ID;
-
-// class Auth0 {
-//   constructor(){
-//     this.auth0 = new auth0.WebAuth({
-//       domain:'jnmn.eu.auth0.com',
-//       clientID:CLIENT_ID,
-//       redirectUri:'http://localhost:3000/callback',
-//       responseType: 'token id_token',
-//       scope: 'openid profile'
-//     });
-//     this.login = this.login.bind(this);
-
-//     this.handleAuthentication = this.handleAuthentication.bind(this);
-//   }
-
-//   login() {
-//     this.auth0.authorize();
-//   }
-// } 
-
-// const auth0Client = new Auth0();
-
-// export default auth0CLient;
-
-
 
 import auth0 from 'auth0-js';
-// import Cookies from 'js-cookie';
+import Cookies from 'js-cookie';
 // import jwt from 'jsonwebtoken';
 // import axios from 'axios';
 
@@ -54,9 +19,11 @@ class Auth0 {
       scope: 'openid profile'
     });
 
+    // CALLBACK FUNCTION
     this.login = this.login.bind(this);
-    // this.logout = this.logout.bind(this);
     this.handleAuthentication = this.handleAuthentication.bind(this);
+    this.logout = this.logout.bind(this);
+    this.isAuthenticated = this.isAuthenticated.bind(this);
   }
 
   handleAuthentication() {
@@ -74,23 +41,40 @@ class Auth0 {
   }
 
    setSession(authResult) {
-    //  SAVE TOKENS
-    // const expiresAt = JSON.stringify((authResult.expiresIn * 1000) + new Date().getTime());
+    //  SET THE TIME THAT ACCES TOKEN WILL EXPIRE AT
+    const expiresAt = JSON.stringify((authResult.expiresIn * 1000) + new Date().getTime());
+    
+
 
     // Cookies.set('jwt', authResult.idToken);
+    Cookies.set('user', authResult.idTokenPayload);
+    Cookies.set('jwt', authResult.idToken);
+    Cookies.set('expiresAt', expiresAt);
   }
 
-  // logout() {
+  logout() {
+    Cookies.remove('user');
+    Cookies.remove('jwt');
+    Cookies.remove('expiresAt');
   //   Cookies.remove('jwt');
 
-  //   this.auth0.logout({
-  //     returnTo: process.env.BASE_URL,
+    this.auth0.logout({
+      // returnTo: process.env.BASE_URL,
+      returnTo: '',
+      clientID: 'gJejjJctuYOVir0bF3dcmD7ptBA297L0'
   //     clientID: CLIENT_ID
-  //   })
-  // }
+    })
+  }
 
   login() {
     this.auth0.authorize();
+  }
+
+  isAuthenticated(){
+    // Check whether the current is past the
+    // Access Token's expiry time
+    const expiresAt = cookies.getJson('expiresAt');
+    return new Date().getTime() < expiresAt;
   }
 
   // async getJWKS() {
@@ -156,3 +140,9 @@ const auth0Client = new Auth0();
 
 export default auth0Client;
 
+    // For local Storage
+    // localStorage.setItem('acces_token', authResult.accessToken)
+    // localStorage.setItem('id_token', authResult.idToken)
+    // localStorage.setItem('expires_at', expiresAt)
+    // NAVIGATE TO HOME ROUTE
+    // history.replace('/home');
