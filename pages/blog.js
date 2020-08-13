@@ -8,7 +8,7 @@ export default class blog extends Component {
 
   render() {
     return (
-      <BaseLayout>
+      <BaseLayout {...this.props.auth}>
         <BasePage>
           <h1>I'm Blog page</h1>
 

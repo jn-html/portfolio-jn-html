@@ -53,7 +53,7 @@ export default class portfolio extends Component {
     const { posts } = this.props;
 
     return (
-      <BaseLayout>
+      <BaseLayout {...this.props.auth}>
         <BasePage>
           <h1>I'm Portfolio page</h1>
           <ul>

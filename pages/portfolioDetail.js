@@ -28,7 +28,7 @@ class PortfolioDetail extends Component {
     const { PortfolioDetail } = this.props;
 
     return (
-      <BaseLayout>
+      <BaseLayout {...this.props.auth}>
         <BasePage>
           {/* <h1> I'm portfolio page</h1>
           <h2> {this.props.router.query.id}</h2> */}

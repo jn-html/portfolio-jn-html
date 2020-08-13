@@ -140,19 +140,7 @@ class Auth0 {
 
   serverAuth(req) {
     if (req.headers.cookie) {
-      
-      // const cookies = req.headers.cookie;
-      // console.log(cookies);
-      // const splitedCookies = cookies.split(';');
-      // console.log(splitedCookies)
-      // // trim to take of space in "json"
-      // const expiresAtCookie = splitedCookies.find(c => c.trim().startsWith('expiresAt='));
-      // console.log(expiresAtCookie); 
-      // const expiresAtArray = expiresAtCookie.split('=');
-      // console.log(expiresAtArray);
-      // const expiresAt = expiresAtCookie[1];
-      // console.log(expiresAt);
-      
+            
       const expiresAtCookie = req.headers.cookie.split(';').find( c => c.trim().startsWith('expiresAt='));
       if (!expiresAtCookie) {
         return undefined
@@ -168,9 +156,22 @@ const auth0Client = new Auth0();
 
 export default auth0Client;
 
-    // For local Storage
+    // For local Storage, in constructor
     // localStorage.setItem('acces_token', authResult.accessToken)
     // localStorage.setItem('id_token', authResult.idToken)
     // localStorage.setItem('expires_at', expiresAt)
     // NAVIGATE TO HOME ROUTE
     // history.replace('/home');
+
+    // IN serverAuth(req), to see how it works
+    // const cookies = req.headers.cookie;
+      // console.log(cookies);
+      // const splitedCookies = cookies.split(';');
+      // console.log(splitedCookies)
+      // // trim to take of space in "json"
+      // const expiresAtCookie = splitedCookies.find(c => c.trim().startsWith('expiresAt='));
+      // console.log(expiresAtCookie); 
+      // const expiresAtArray = expiresAtCookie.split('=');
+      // console.log(expiresAtArray);
+      // const expiresAt = expiresAtCookie[1];
+      // console.log(expiresAt);

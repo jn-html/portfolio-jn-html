@@ -77,6 +77,7 @@ export default class Header extends Component {
   render(){
     // destructured for class component
     const { isOpen } = this.state;
+    const { isAuthenticated } = this.props
 
     // const menuOpenClass = isOpen ? 'menu-open' : 'menu-close';
 
@@ -85,7 +86,7 @@ export default class Header extends Component {
         <Navbar className="port-navbar port-default absolute" color="transparent" dark expand="md">
           <NavbarBrand className="port-navbar-brand" href="/">Jean Marmain</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
-          <Collapse isOpen={this.state.isOpen} navbar>
+          <Collapse isOpen={isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem className="port-navbar-item">
                 <BsNavLink route="/" title="Home" />
@@ -104,13 +105,13 @@ export default class Header extends Component {
               </NavItem>
 
                 {/* { auth0.isAuthenticated() === false &&  //same as */}
-                { !auth0.isAuthenticated() &&
+                { !isAuthenticated &&
                   <NavItem className="port-navbar-item clickable">
                     <Login />
                   </NavItem>
 
                 }
-                { auth0.isAuthenticated() && 
+                { isAuthenticated && 
                   <NavItem className="port-navbar-item clickable">
                     <Logout />
                   </NavItem>

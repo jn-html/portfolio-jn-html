@@ -7,7 +7,7 @@ export default class Cv extends Component {
 
   render() {
     return (
-      <BaseLayout>
+      <BaseLayout {...this.props.auth}>
         <BasePage>
           <h1> I'm Cv page</h1>
 
