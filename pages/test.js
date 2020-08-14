@@ -7,8 +7,7 @@ class Test extends Component {
 
   static async getInitialProps({query}) {
     const testId = query.id
-    
-    
+        
     return {testId};
   }
 
