@@ -87,6 +87,8 @@ class Auth0 {
       if (token) {
         // needs to be complete in order to get headers of token
         const decodedToken = jwt.decode(token, { complete: true});
+        // if no corect decodedToken return ...
+        if (!decodedToken){ return undefined }
         
         const jwks = await this.getJWKS();
         const jwk = jwks.keys[0];
