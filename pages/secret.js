@@ -1,39 +1,49 @@
-import React, { Component } from 'react';
+import React from 'react';
 import BaseLayout from '../components/layouts/BaseLayout';
 import BasePage from '../components/BasePage';
+import withAuth from '../components/hoc/withAuth';
+import FunctWithAuth from '../components/hoc/withAuth';
 
-class Secret extends Component {
+class Secret extends React.Component {
 
-  renderSecretPage() {
-    const { isAuthenticated } = this.props.auth;
+  // renderSecretPage() {
+  //   const { isAuthenticated } = this.props.auth;
 
-    if (isAuthenticated){
-      return (
-        <BaseLayout {...this.props.auth}>
-          <BasePage>
-            <h1> I'm the secret page </h1>
-            <p> Secret Content here </p>
-          </BasePage>
-        </BaseLayout>
-      )
-    } else {
-      return (
-        <BaseLayout {...this.props.auth}>
-          <BasePage>
-            <h1> You are not authenticated. Please Login to acces this page. </h1>
-          </BasePage>
-        </BaseLayout>
-      )
-    }
-  }
+  //   if (isAuthenticated){
+  //     return (
+  //       <BaseLayout {...this.props.auth}>
+  //         <BasePage>
+  //           <h1> I'm the secret page </h1>
+  //           <p> Secret Content here </p>
+  //         </BasePage>
+  //       </BaseLayout>
+  //     )
+  //   } else {
+  //     return (
+  //       <BaseLayout {...this.props.auth}>
+  //         <BasePage>
+  //           <h1> You are not authenticated. Please Login to acces this page. </h1>
+  //         </BasePage>
+  //       </BaseLayout>
+  //     )
+  //   }
+  // }
 
   render() {
     
-    return this.renderSecretPage()
+    
+    return(
+      <BaseLayout {...this.props.auth}>
+        <BasePage>
+          <h1> I'm the secret page </h1>
+          <p> Secret Content here </p>
+        </BasePage>
+      </BaseLayout>
+    )
   }
 }
 
-export default Secret;
+export default withAuth(Secret);
 
 
 

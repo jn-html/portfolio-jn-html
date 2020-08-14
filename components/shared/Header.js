@@ -4,7 +4,7 @@
 //   const toggle = () => setIsOpen(!isOpen);
 // }
 
-import React, { useState, Component } from 'react';
+import React from 'react';
 import Link from 'next/link';
 import {
   Collapse,
@@ -47,7 +47,7 @@ const Logout = () => {
 }
 
 // CLASS COMPONENT
-export default class Header extends Component {
+export default class Header extends React.Component {
   constructor(props){
     super(props);
     

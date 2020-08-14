@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 import BaseLayout from '../../components/layouts/BaseLayout';
 import { withRouter } from 'next/router';
 import axios from 'axios';
 
-class PortfolioDetail extends Component {
+class PortfolioDetail extends React.Component {
 
   static async getInitialProps({query}) {
 

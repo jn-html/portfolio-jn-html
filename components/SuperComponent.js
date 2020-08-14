@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
+import React from 'react'
 import BaseLayout from './layouts/BaseLayout';
 
-class SuperComponent extends Component {
+class SuperComponent extends React.Component {
   constructor(props) {
     super(props);
 

@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Typed from 'react-typed';
 import BaseLayout from '../components/layouts/BaseLayout';
 import { Button, Container, Row, Col } from 'reactstrap';
 
 
 
-class Index extends Component {
+class Index extends React.Component {
 
   constructor(props){
     super(props);
@@ -52,7 +52,7 @@ class Index extends Component {
                 </h1>
                   <h1>
                     Welcome to the portfolio website of Jean Marmain.
-                    Get informed, collaborate and discover projects I was working on through the year!
+                    Get informed, collaborate and discover projects He was working on through the year!
                   </h1>
                 </div>
                 <Typed
