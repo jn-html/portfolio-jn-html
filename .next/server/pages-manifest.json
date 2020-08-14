@@ -2,8 +2,8 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/portfolio": "pages/portfolio.js",
   "/": "pages/index.js",
+  "/callback": "pages/callback.js",
   "/next/dist/pages/_error": "pages/next/dist/pages/_error.js",
-  "/callback": "pages/callback.js"
+  "/secret": "pages/secret.js"
 }

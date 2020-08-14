@@ -41,10 +41,10 @@
       "static/chunks/webpack.js",
       "static/chunks/pages/next/dist/pages/_error.js"
     ],
-    "/portfolio": [
+    "/secret": [
       "static/chunks/main.js",
       "static/chunks/webpack.js",
-      "static/chunks/pages/portfolio.js"
+      "static/chunks/pages/secret.js"
     ]
   },
   "ampFirstPages": []
