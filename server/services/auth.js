@@ -4,7 +4,7 @@ const jwksRsa = require('jwks-rsa');
 
 // MIDDLEWARE
 exports.checkJWT = jwt({
-  secret: jwksRsa({
+  secret: jwksRsa.expressJwtSecret({
     cache: true,
     rateLimit: true,
     jwksRequestsPerMinute: 15,
@@ -15,7 +15,7 @@ exports.checkJWT = jwt({
   // audience = ClientID
   audience: 'gJejjJctuYOVir0bF3dcmD7ptBA297L0',
   // issuer = Domaine
-  issuer: 'https://jnmn.eu.auth0.com',
+  issuer: 'https://jnmn.eu.auth0.com/',
   // algorithms: ['HS256'] or ['RS256']
   algorithms: ['RS256']
 })
