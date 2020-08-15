@@ -12,7 +12,7 @@ class About extends React.Component{
     return (
       <BaseLayout {...this.props.auth}>
         <BasePage className="about-page">
-          <h1>I am About page</h1>
+          <h1>I am about page</h1>
 
         </BasePage>
       </BaseLayout>
@@ -20,4 +20,5 @@ class About extends React.Component{
   }
 }
 
-export default withAuth(About);
+// export default withAuth(About);
+export default About;
