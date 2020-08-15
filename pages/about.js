@@ -1,6 +1,7 @@
 import React from 'react';
 import BaseLayout from '../components/layouts/BaseLayout';
 import BasePage from '../components/BasePage';
+import withAuth from '../components/hoc/withAuth';
 
 
 
@@ -11,7 +12,7 @@ class About extends React.Component{
     return (
       <BaseLayout {...this.props.auth}>
         <BasePage className="about-page">
-          <h1>I am about page</h1>
+          <h1>I am About page</h1>
 
         </BasePage>
       </BaseLayout>
@@ -19,4 +20,4 @@ class About extends React.Component{
   }
 }
 
-export default About;
+export default withAuth(About);

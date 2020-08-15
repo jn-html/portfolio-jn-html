@@ -6,37 +6,23 @@ import FunctWithAuth from '../components/hoc/withAuth';
 
 class Secret extends React.Component {
 
-  // renderSecretPage() {
-  //   const { isAuthenticated } = this.props.auth;
+  static getInitialProps() {
+    const superSecretValue = 'Super Secret value';
 
-  //   if (isAuthenticated){
-  //     return (
-  //       <BaseLayout {...this.props.auth}>
-  //         <BasePage>
-  //           <h1> I'm the secret page </h1>
-  //           <p> Secret Content here </p>
-  //         </BasePage>
-  //       </BaseLayout>
-  //     )
-  //   } else {
-  //     return (
-  //       <BaseLayout {...this.props.auth}>
-  //         <BasePage>
-  //           <h1> You are not authenticated. Please Login to acces this page. </h1>
-  //         </BasePage>
-  //       </BaseLayout>
-  //     )
-  //   }
-  // }
+    return { superSecretValue };
+  }
 
   render() {
     
+    const { superSecretValue } = this.props
     
-    return(
+    return( 
+
       <BaseLayout {...this.props.auth}>
         <BasePage>
           <h1> I'm the secret page </h1>
           <p> Secret Content here </p>
+          <h2>{superSecretValue}</h2>
         </BasePage>
       </BaseLayout>
     )
