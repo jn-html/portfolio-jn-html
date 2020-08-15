@@ -28,6 +28,9 @@ app.prepare().then(() => {
 
 
   server.get('/api/v1/secret', authService.checkJWT, (req, res)=> {
+
+    
+
     return res.json(secretData)
   })
 
