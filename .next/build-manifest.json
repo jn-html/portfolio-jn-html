@@ -26,6 +26,11 @@
       "static/chunks/webpack.js",
       "static/chunks/pages/_error.js"
     ],
+    "/cv": [
+      "static/chunks/main.js",
+      "static/chunks/webpack.js",
+      "static/chunks/pages/cv.js"
+    ],
     "/secret": [
       "static/chunks/main.js",
       "static/chunks/webpack.js",

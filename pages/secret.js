@@ -4,18 +4,17 @@ import BasePage from '../components/BasePage';
 import withAuth from '../components/hoc/withAuth';
 
 import axios from 'axios';
-import { getSecretData } from '../actions';
+import { getSecretData, getSecretDataServer } from '../actions';
 class Secret extends React.Component {
 
-  static getInitialProps() {
-    const superSecretValue = 'Super Secret value';
-
-    return { superSecretValue };
+  static async getInitialProps({req}) {
+    const anotherSecretData =  await getSecretData(req) 
+    // console.log(anotherSecretData);
+    return { anotherSecretData };
   }
 
   // constructor(props){
   //   super(props);
-
   //   this.state = {
   //     secretData: []
   //   }
@@ -29,7 +28,6 @@ class Secret extends React.Component {
   async componentDidMount(){
     // const res = await axios.get('/api/v1/secret');
     const secretData = await getSecretData();
-
     this.setState({
       secretData
     });
@@ -42,7 +40,7 @@ class Secret extends React.Component {
       // WHEN .map() need a key property (ex:index)
       return secretData.map((data, index) => {
         return(
-          <div key={index }>
+          <div key={index}>
             <p>{data.title}</p>
             <p>{data.description}</p>
           </div>
