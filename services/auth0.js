@@ -69,12 +69,7 @@ class Auth0 {
     this.auth0.authorize();
   }
 
-  // isAuthenticated(){
-  //   // Check whether the current is past the
-  //   // Access Token's expiry time
-  //   const expiresAt = Cookies.getJSON('expiresAt');
-  //   return new Date().getTime() < expiresAt;
-  // }
+
 
   async getJWKS() {
     const res = await axios.get('https://jnmn.eu.auth0.com/.well-known/jwks.json');
@@ -123,19 +118,6 @@ class Auth0 {
   }
 
 
-
-//   async serverAuth(req) {
-//     if (req.headers.cookie) {
-
-//       const token = getCookieFromReq(req, 'jwt');
-//       const verifiedToken = await this.verifyToken(token);
-
-//       return verifiedToken;
-//     }
-
-//     return undefined;
-//   }
- 
   async serverAuth(req) {
     if (req.headers.cookie) {
             
@@ -153,22 +135,26 @@ const auth0Client = new Auth0();
 
 export default auth0Client;
 
-    // For local Storage, in constructor
-    // localStorage.setItem('acces_token', authResult.accessToken)
-    // localStorage.setItem('id_token', authResult.idToken)
-    // localStorage.setItem('expires_at', expiresAt)
-    // NAVIGATE TO HOME ROUTE
-    // history.replace('/home');
 
-    // IN serverAuth(req), to see how it works
-    // const cookies = req.headers.cookie;
-      // console.log(cookies);
-      // const splitedCookies = cookies.split(';');
-      // console.log(splitedCookies)
-      // // trim to take of space in "json"
-      // const expiresAtCookie = splitedCookies.find(c => c.trim().startsWith('expiresAt='));
-      // console.log(expiresAtCookie); 
-      // const expiresAtArray = expiresAtCookie.split('=');
-      // console.log(expiresAtArray);
-      // const expiresAt = expiresAtCookie[1];
-      // console.log(expiresAt);
+
+
+// -----------Edit rules on auth0------------------
+// function (user, context, callback) {
+//   const namespace = 'http://localhost:3000';
+  
+//   if (user.email === '@gmail.com') {
+  // context.idToken[namespace + `/roles`] = '...'; // define a role name(s) (in a array if few)
+//   } else {
+//     context.idToken[namespace + `/roles`] = ['guest'];
+//   }
+//   callback(null, user, context);
+// }
+
+
+
+  // isAuthenticated(){
+  //   // Check whether the current is past the
+  //   // Access Token's expiry time
+  //   const expiresAt = Cookies.getJSON('expiresAt');
+  //   return new Date().getTime() < expiresAt;
+  // }
