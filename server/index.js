@@ -25,10 +25,18 @@ const secretData = [
 app.prepare().then(() => {
   const server = express();
 
+  // Check if user is authenticated
   server.get('/api/v1/secret', authService.checkJWT, (req, res)=> {
-
-    return res.json(secretData)
+    return res.json(secretData);
   })
+
+  // Check Roles
+  server.get('/api/v1/onlysiteowner', authService.checkJWT, authService.checkRole('siteOwner'), (req, res)=> {
+    // req.user = {};
+
+    return res.json(secretData);
+  })
+  
 
   server.get('*',  (req, res) => {
   return handler(req, res);

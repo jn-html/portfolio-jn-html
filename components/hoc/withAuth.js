@@ -17,20 +17,15 @@ export default function Compo(role)  {
     
       renderProtectedPage() {
         const { isAuthenticated, user } = this.props.auth;
-        // before
-        // const userRole = user && user[`${namespace}role`];
-        // after
         const userRole = user && user[namespace + `roles`];
         let isAuthorized = false;
-        // debugger;
-
+        debugger;
   
         if (role) {
           if (userRole && userRole === role) { isAuthorized = true };
         } else {
           isAuthorized = true;
         }
-        // debugger;
   
         if (!isAuthenticated) {
           return (
