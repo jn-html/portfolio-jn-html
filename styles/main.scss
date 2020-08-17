@@ -1,5 +1,6 @@
-// FONTS
+// SHARED
 @import './shared/fonts';
+@import './shared/colors';
 
 // PAGES
 @import './index';
@@ -7,10 +8,11 @@
 // COMPONENTS
 @import './header';
 
+
 html, body {
-  height:100%;
-  width:100%;
-  font-family: 'Monserrat', 'Helvetica';
+  height: 100%;
+  width: 100%;
+  font-family: 'Montserrat', 'Helvetica';
 }
 
 .clickable {
@@ -28,15 +30,35 @@ html, body {
   position: absolute;
 }
 
+.error {
+  font-weight: 700;
+  color: red;
+}
+// ajout
+.container{
+  min-width:100%;
+  margin: 0;
+  padding:0;
+}
+// .layout-container{
+//   margin:0;
+//   padding:0;
+// }
+
 .base-page {
-  padding-top: 150px;
-  color: white;
+  padding: 150px 0 100px 5rem;
+  color: black;
+  background-color: #ecedee;
+  min-height: 100vh;
+  
+
+  .page-header {
+    .page-header-title {
+      font-weight: 700;
+      color: black;
+      display: inline-block;
+      margin-bottom: 20px;
+    }
+  }
 }
 
-
-
-// Xtra
-.container {
-  max-width: 100%;
-  padding: 0;
-}

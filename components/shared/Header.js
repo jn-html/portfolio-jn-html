@@ -1,8 +1,4 @@
-// WITH HOOKS
-// const Example = (props) => {
-//   const [isOpen, setIsOpen] = useState(false);
-//   const toggle = () => setIsOpen(!isOpen);
-// }
+
 
 import React from 'react';
 import Link from 'next/link';
@@ -73,20 +69,20 @@ export default class Header extends React.Component {
   //   });
   // }
 
-  // RENDER appartient au class component pas au hooks
+  
   render(){
     // destructured for class component
-    const { isOpen } = this.state;
-    const { isAuthenticated } = this.props
+    // const { isOpen } = this.state;
+    const { isAuthenticated, user, className } = this.props
 
     // const menuOpenClass = isOpen ? 'menu-open' : 'menu-close';
 
     return (
       <div>
-        <Navbar className="port-navbar port-default absolute" color="transparent" dark expand="md">
+        <Navbar className={`port-navbar port-nav-base absolute ${className}`} color="transparent" dark expand="md">
           <NavbarBrand className="port-navbar-brand" href="/">Jean Marmain</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
-          <Collapse isOpen={isOpen} navbar>
+          <Collapse isOpen={this.props.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem className="port-navbar-item">
                 <BsNavLink route="/" title="Home" />
@@ -117,7 +113,36 @@ export default class Header extends React.Component {
                   </NavItem>
                 }
 
-                {/* TO DISPLAY NAME IN NAVBAR */}
+              {/* <NavItem>
+                <NavLink href="https://github.com/reactstrap/reactstrap">GitHub</NavLink>
+              </NavItem> */}
+
+
+            </Nav>
+            {/* <NavbarText>:D XD</NavbarText> */}
+          </Collapse>
+        </Navbar>
+      </div>
+    );
+  }
+}
+
+// export default Example;
+
+
+
+// --------- REMINDER CODE BELOW -----------
+
+
+// WITH HOOKS
+// const Example = (props) => {
+//   const [isOpen, setIsOpen] = useState(false);
+//   const toggle = () => setIsOpen(!isOpen);
+// }
+// RENDER appartient au class component pas au hooks
+
+
+ {/* TO DISPLAY NAME IN NAVBAR */}
                 {/* { isAuthenticated && 
                   <NavItem className="port-navbar-item clickable">
                     <span className="nav-user-name">{this.props.user.name}</span>
@@ -126,9 +151,7 @@ export default class Header extends React.Component {
 
 
 
-              {/* <NavItem>
-                <NavLink href="https://github.com/reactstrap/reactstrap">GitHub</NavLink>
-              </NavItem> */}
+
               {/* <UncontrolledDropdown nav inNavbar>
                 <DropdownToggle nav caret>
                   Options
@@ -146,13 +169,3 @@ export default class Header extends React.Component {
                   </DropdownItem>
                 </DropdownMenu>
               </UncontrolledDropdown> */}
-            </Nav>
-            {/* <NavbarText>:D XD</NavbarText> */}
-          </Collapse>
-        </Navbar>
-      </div>
-    );
-  }
-}
-
-// export default Example;
