@@ -1,5 +1,6 @@
 import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Button, FormGroup, Label } from 'reactstrap';
 
 
 
@@ -43,41 +44,41 @@ const PortfolioCreateForm = () =>  (
       {({ isSubmitting }) => (
         <Form>
 
-          <div>
-            <label>Title</label>
-            <Field type="text" name="title" />
+          <FormGroup>
+            <Label>Title</Label>
+            <Field className="form-control" type="text" name="title" />
             <ErrorMessage name="title" component="div" />
-          </div>
+          </FormGroup>
 
-          <div>
-            <label>Company</label>
-            <Field type="text" name="company" />
+          <FormGroup>
+            <Label>Company</Label>
+            <Field className="form-control" type="text" name="company" />
             <ErrorMessage name="company" component="div" />
-          </div>
+          </FormGroup>
 
-          <div>
-            <label>Location</label>
-            <Field type="text" name="location" />
+          <FormGroup>
+            <Label>Location</Label>
+            <Field className="form-control" type="text" name="location" />
             <ErrorMessage name="location" component="div" />
-          </div>
+          </FormGroup>
 
-          <div>
-            <label>Description</label>
-            <Field type="textarea" name="description" component="textarea"/>
+          <FormGroup>
+            <Label>Description</Label>
+            <Field className="form-control" type="textarea" name="description" component="textarea"/>
             <ErrorMessage name="description" component="div" />
-          </div>
+          </FormGroup>
 
-          <div>
-            <label>Started Date</label>
-            <Field type="text" name="startDate" />
+          <FormGroup>
+            <Label>Started Date</Label>
+            <Field className="form-control" type="text" name="startDate" />
             <ErrorMessage name="startDate" component="div" />
-          </div>
+          </FormGroup>
 
-          <div>
-            <label>Finished Date</label>
-            <Field type="text" name="endDate" />
+          <FormGroup>
+            <Label>Finished Date</Label>
+            <Field className="form-control" type="text" name="endDate" />
             <ErrorMessage name="endDate" component="div" />
-          </div>
+          </FormGroup>
 
           <button type="submit" disabled={isSubmitting} >
             Create
@@ -163,15 +164,15 @@ onSubmit={(values, { setSubmitting }) => {
 //   render() {
 //     return (
 //       <form onSubmit={this.handleSubmit}>
-//         <label>
+//         <Label>
 //           Name :
 //           <input name="title" type="text" value={this.state.value} onChange={this.handleChange} />
-//         </label>
-//         <label>
+//         </Label>
+//         <Label>
 //           Description:
 //           <textarea name="description" value={this.state.description} onChange={this.handleChange} />
-//         </label>
-//         <label>
+//         </Label>
+//         <Label>
 //           Pick your favorite Programming Language:
 //           <select name="language" value={this.state.language} onChange={this.handleChange} >
 //             <option selected value="javascript">Javascript</option>
@@ -179,7 +180,7 @@ onSubmit={(values, { setSubmitting }) => {
 //             <option value="c++">C++</option>
 //             <option value="c#">C#</option>
 //           </select>
-//         </label>
+//         </Label>
 //         <input type="submit" value="Submit" />
 //       </form>
 //     );
