@@ -1,6 +1,7 @@
 import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { Button, FormGroup, Label } from 'reactstrap';
+import PortInput from '../form/PortInput';
 
 
 
@@ -44,39 +45,37 @@ const PortfolioCreateForm = () =>  (
       {({ isSubmitting }) => (
         <Form>
 
+          <Field 
+            type="text" 
+            label="Title"
+            name="title" 
+            component={PortInput} 
+          />
+          <Field 
+            type="text" 
+            label="Company"
+            name="company"
+            component={PortInput}
+          />
+          <Field 
+            type="text" 
+            label="Location"
+            name="location"
+            component={PortInput} 
+          />
+          <Field 
+            type="textarea" 
+            label="Description"
+            name="description" 
+            component={PortInput}
+          />
           <FormGroup>
-            <Label>Title</Label>
-            <Field className="form-control" type="text" name="title" />
-            <ErrorMessage name="title" component="div" />
-          </FormGroup>
-
-          <FormGroup>
-            <Label>Company</Label>
-            <Field className="form-control" type="text" name="company" />
-            <ErrorMessage name="company" component="div" />
-          </FormGroup>
-
-          <FormGroup>
-            <Label>Location</Label>
-            <Field className="form-control" type="text" name="location" />
-            <ErrorMessage name="location" component="div" />
-          </FormGroup>
-
-          <FormGroup>
-            <Label>Description</Label>
-            <Field className="form-control" type="textarea" name="description" component="textarea"/>
-            <ErrorMessage name="description" component="div" />
-          </FormGroup>
-
-          <FormGroup>
-            <Label>Started Date</Label>
+            <Label>Start Date</Label>
             <Field className="form-control" type="text" name="startDate" />
-            <ErrorMessage name="startDate" component="div" />
           </FormGroup>
-
           <FormGroup>
-            <Label>Finished Date</Label>
-            <Field className="form-control" type="text" name="endDate" />
+            <Label>End Date</Label>
+            <Field className="form-control"  type="text" name="endDate" />
             <ErrorMessage name="endDate" component="div" />
           </FormGroup>
 
