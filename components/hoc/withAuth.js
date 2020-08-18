@@ -19,7 +19,7 @@ export default function Compo(role)  {
         const { isAuthenticated, user } = this.props.auth;
         const userRole = user && user[namespace + `roles`];
         let isAuthorized = false;
-        debugger;
+        // debugger;
   
         if (role) {
           if (userRole && userRole === role) { isAuthorized = true };
