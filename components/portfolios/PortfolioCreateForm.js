@@ -13,7 +13,7 @@ const validateInputs = (values) => {
   // destructuring array of key and value
   entries.forEach(([key,value])=> {
 
-    if(!values[key]) {
+    if(!values[key] && (values[key] === 'startDate' || values[key] === 'endDate')) {
       errors[key] = `Field ${key} is required!!`;
     }
   })
@@ -26,7 +26,7 @@ const INITIAL_VALUES = {
   location: '',
   description: '', 
   startDate: '',
-  endDate: ''
+  endDate: '',
 };
 
 const PortfolioCreateForm = () =>  (
