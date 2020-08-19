@@ -2,6 +2,7 @@ import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { Button, FormGroup, Label } from 'reactstrap';
 import PortInput from '../form/PortInput';
+import PortDate from '../../components/form/PortDate';
 
 
 
@@ -47,37 +48,38 @@ const PortfolioCreateForm = () =>  (
 
           <Field 
             type="text" 
-            label="Title"
             name="title" 
+            label="Title"
             component={PortInput} 
           />
           <Field 
             type="text" 
-            label="Company (if no company, write: Personal)"
             name="company"
+            label="Company (if no company, write: Personal)"
             component={PortInput}
           />
           <Field 
             type="text" 
-            label="Location"
             name="location"
+            label="Location"
             component={PortInput} 
           />
           <Field 
             type="textarea" 
-            label="Description"
             name="description" 
+            label="Description"
             component={PortInput}
           />
-          <FormGroup>
-            <Label>Start Date</Label>
-            <Field className="form-control" type="text" name="startDate" />
-          </FormGroup>
-          <FormGroup>
-            <Label>End Date</Label>
-            <Field className="form-control"  type="text" name="endDate" />
-            <ErrorMessage name="endDate" component="div" />
-          </FormGroup>
+          <Field 
+            name="startDate" 
+            label="Start date"
+            component={PortDate}
+          />
+          <Field 
+            name="endDate" 
+            label="End Date"
+            component={PortDate}
+          />
 
           <button type="submit" disabled={isSubmitting} >
             Create
@@ -128,7 +130,7 @@ export default PortfolioCreateForm;
   // }
 
 
-// ------ FORMIK BASE, REGROUPED FUNCTIONS ------
+// ------ FORMIK BASE && REGROUPED FUNCTIONS ------
 
 {/* <Formik
 initialValues={{ email: '', password: '' }}
