@@ -14,10 +14,10 @@ const validateInputs = (values) => {
   // destructuring array of key and value
   entries.forEach(([key,value])=> {
 
-    // if(!values[key] && key !== 'endDate') {
+    // if(!values[key] && (values[key] === 'startDate' || values[key] === 'endDate')) {
     //   errors[key] = `Field ${key} is required!!`;
     // }
-    if(!values[key] && (values[key] === 'startDate' || values[key] === 'endDate')) {
+    if(!values[key] && key !== 'endDate') {
       errors[key] = `Field ${key} is required!!`;
     }
   })
@@ -25,7 +25,7 @@ const validateInputs = (values) => {
   const startDate = moment(values.startDate);
   const endDate = moment(values.endDate);
 
-  if ( endDate.isBefore(startDate)) {
+  if (startDate && endDate && endDate.isBefore(startDate)) {
     errors.endDate = 'End Date can not be before Start Date!!';
   }
 
@@ -91,6 +91,7 @@ const PortfolioCreateForm = () =>  (
           <Field 
             name="endDate" 
             label="End Date"
+            canBeDisabled={true}
             component={PortDate}
           />
 
