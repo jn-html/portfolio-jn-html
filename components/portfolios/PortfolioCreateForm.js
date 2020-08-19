@@ -5,19 +5,19 @@ import PortInput from '../form/PortInput';
 
 
 
-const validateInputs = (validate) => {
+const validateInputs = (values) => {
   let errors = {};
 
-  if (!values.email) {
-  //   errors.email = 'Required';
-  // } else if (
-  //   !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
-  // ) {
-  //   errors.email = 'Invalid email address';
-  // }
+  const entries = Object.entries(values);
+  // destructuring array of key and value
+  entries.forEach(([key,value])=> {
+
+    if(!values[key]) {
+      errors[key] = `Field ${key} is required!!`;
+    }
+  })
   return errors;
   }
-}
 
 const INITIAL_VALUES = {  
   title: '',
@@ -53,7 +53,7 @@ const PortfolioCreateForm = () =>  (
           />
           <Field 
             type="text" 
-            label="Company"
+            label="Company (if no company, write: Personal)"
             name="company"
             component={PortInput}
           />
@@ -97,13 +97,38 @@ export default PortfolioCreateForm;
 // ------------- REMINDER CODE BELOW -----------
 
 
+// ----------------------------- SAME FUNCTION WITH KEY OR ENTRIES ------------------------
+//----------- (ONLY GET VALUE OF KEY) ------------      || -------- (GETS AN ARRAY OF KEY AND VALUE) ------------
+  // const keyArray = Object.keys(values);              ||  const entries = Object.entries(values);
+//                                                      ||  // destructuring array of key and value       
+  // keyArray.forEach((key)=> {                         ||  entries.forEach(([key,value])=> {
+  //   if(!values[key]) {                               ||  if(!values[key]) {
+  //     errors[key] = `Field ${key} is required!!`     ||  errors[key] = `Field ${key} is required!!`;
+  //   }                                                ||  }
+  // })                                                 ||  })
+  // return errors;                                     ||  return errors;
+  // }                                                  ||  }
 
 
+// ------ EXAMPLE OF SINGLES FIELD REQUIRED --------
+// if (!values.title) {
+//   errors.title= "Title is required!!!"
+// }
+// if(!values.company){
+//   errors.company = "Company is required!!!"
+// }
+
+//----- EXAMPLE OF REQUIRED FIELD AND AUTHORIZE VALUE ----------
+// if (!values.email) {
+  //   errors.email = 'Required';
+  // } else if (
+  //   !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
+  // ) {
+  //   errors.email = 'Invalid email address';
+  // }
 
 
-
-
-// ------FORMIK BASE, REGROUPED FUNCTIONS ------
+// ------ FORMIK BASE, REGROUPED FUNCTIONS ------
 
 {/* <Formik
 initialValues={{ email: '', password: '' }}
@@ -129,7 +154,7 @@ onSubmit={(values, { setSubmitting }) => {
 
 
 
-// -------------BASIC FORM ------------
+// ------------- BASIC FORM ------------
 
 // import React from 'react';
 
