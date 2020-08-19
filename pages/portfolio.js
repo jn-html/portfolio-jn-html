@@ -19,7 +19,7 @@ export default class portfolio extends React.Component {
       console.error(err)
     }
     
-    return {posts: posts.splice(0, 10)};
+    return {posts: posts.splice(0, 12)};
   }
 
   renderPosts(posts) {
