@@ -2,9 +2,3 @@ node_modules
 /.next
 /server/.next
 /server/config/dev.js
-
-.env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
