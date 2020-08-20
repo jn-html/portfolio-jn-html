@@ -29,3 +29,5 @@ class Test extends React.Component {
 export default withRouter(Test);
 
 
+// For later for Mongo Atlas
+// mongodb+srv://jn-html-test:testtest@cluster0.uwev0.mongodb.net/<dbname>?retryWrites=true&w=majority
