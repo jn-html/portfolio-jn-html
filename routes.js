@@ -12,11 +12,6 @@ module.exports = routes()
 // .add('test', '/test/:id')
 
 
-// OLD NEXT
-// const routes = require('next-routes')
-// module.exports = routes()
-// // .add('about')
-// .add('portfolioDetail', '/portfolioDetail/:id')
 
 
 // TO ADD LATER
