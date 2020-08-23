@@ -1,3 +1,14 @@
+const dotenv = require('dotenv').config();
+
+if (process.env.NODE_ENV){
+  require('dotenv').config({
+    path: `${__dirname}/.env.${process.env.NODE_ENV}`,
+  });
+} else {
+  require('dotenv').config()
+}
+// console.log(dotenv.parsed)
+
 const express = require('express');
 const next = require('next');
 const routes = require('../routes');
@@ -48,7 +59,7 @@ app.prepare().then(() => {
     }
   });
 
-  server.use(handler).listen(3000, (err) => {
+  server.use(handler).listen(process.env.PORT, (err) => {
     if(err) throw err
     console.log('> Ready on http://localhost:3000');
   })
